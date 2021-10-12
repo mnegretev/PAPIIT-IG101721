@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contextual Bandit +noise Experiment">
+    <meta name="author" content="Gabriela Facio">
+    <meta charset="utf-8">
+    <title>Learning</title>
+    <link href="static/stylesheets/jspsych.css" rel="stylesheet">
+    <style>
+      .column {
+        float: left;
+        width: 24.24%;
+        padding: 0px;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display:table;
+      }
+    </style>
+  </head>
+  <body class="bg">
+    
+    <div>
+      <div id="page1">
+        <h1 align=center><font FACE="bookman">Bienvenido a </font></h1>
+        <img src="/static/figures/arcano.png" class="img"/>
+        <button id="btn" type="button" name="button" class="btn"; onclick="clickStart('page1', 'page2')"; >
+          Continuar
+        </button>
+      </div>
+
+
+      <div id="page2" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>
+          En este experimento buscamos saber cómo es que los humanos toman decisiones.<br>
+          Por favor lee la historia a continuación y trata de realizar la tarea lo mejor posible.
+        </blockquote><br>
+        <button type="button" name="button" id="btn" class="btn"; onclick="clickStart('page2','page3')";>
+          Siguiente
+        </button>
+      </div>
+      <div id="page3" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>
+          Imagina que el planeta Tierra está sufriendo por desabasto de Uranio,
+          elemento necesario para mantener fríos los reactores nucleares.<br>
+          Por lo anterior, un grupo de astronautas (incluido tú), es reclutado para realizar una misión en el
+          espacio que consistirá en conseguir la mayor cantidad de Uranio proveniente de 4 planetas,
+          y así evitar una catástrofe en la Tierra.
+        </blockquote>
+        <br>
+        <button type="button" name="button" id="btn" class="btn"; onclick="clickStart('page3','page4')"; >
+          Siguiente
+        </button>
+      </div>
+      
+      <div id="page4" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>
+          El jefe de astronautas te dice que tendrás 150 días para visitar los 4 planetas y extraer su Uranio.<br>
+          Sin embargo, te pide tengas cuidado, pues la galaxia se comporta de formas misteriosas.
+        </blockquote>
+        <button type="button" name="button" id="btn" class="btn" ; onclick="clickStart('page4','page5')"; >
+          Siguiente
+        </button>
+      </div>
+
+      <div id="page5" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>Te explica que la galaxia está controlada por 3 factores ambientales:<br><br>
+          <b>Mercurio,Krypton y Nobelio</b><br><br>
+          Estos factores pueden estar presentes(representados como "+") o ausentes (representados como "-") y
+          combinados de cierta forma, harán que obtengas más Uranio en algunos planetas y menos en otros.
+        </blockquote>
+        <button type="button" name="button" id="btn" class="btn"; onclick="clickStart('page5','page6')"; >
+          Siguiente
+        </button>
+      </div>
+
+      <div id="page6" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>
+          Dado este comportamiento, es posible que en ocasiones el examinador de elementos de tu nave identifique
+          un elemento muy parecido al Uranio, el Plutonio.<br>
+          Esto hará que notes una disminución de Uranio de la suma total.
+        </blockquote>
+        <button type="button" name="button" id="btn" class="btn"; onclick="clickStart('page6','page7')"; >
+          Siguiente
+        </button>
+      </div>
+      
+      <div id="page7" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>
+          Antes de enviarte, tu jefe quiere asegurar que tu desempeño en el espacio será el mejor.<br>
+          Por lo anterior, decide iniciar una fase de prueba que consta de 15 simulaciones de la
+          tarea que tendrás que realizar en el espacio exterior.
+        </blockquote>
+        <button type="button" name="button" id="btn" class="btn"; onclick="clickStart('page7','page8')"; >
+          Siguiente
+        </button>
+      </div>
+
+      <div id="page8" style="display:none">
+        <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3><br><br><br>
+        <blockquote align=center>
+          Como última instrucción, te dice que para poder conseguir Uranio de los planetas,
+          bastará con que hagas click sobre ellos.<br>
+          Al terminar el entrenamiento, se te notificará en pantalla y podrás ir al espacio
+          a salvar el planeta Tierra.
+        </blockquote>
+        <button type="button" name="button" class="btn2" id="centrado"; onclick="clickStart('page8','page9')"; >
+          Iniciar fase de prueba
+        </button>
+      </div>
+  </body>
+  
+<!---FASE DE PRUEBA-->
+<div id="explainshow" style="display:block" class="bg">
+  <div id="page9" style="display:none">
+    <h3 align=left><font color="white">
+        <b><div id="remain">Días restantes: 15</div></b>
+        <b><div  id="score">Uranio total: 0</div></b>
+    </font></h3>
+    <div style="width:1000px;margin:10px auto">
+      <center>
+        <font size="5">
+          <font color="white">
+            <div id="sun"  style="display:block">MERCURIO  +</div><br>
+          </font>
+          <font color="white">
+            <div id="temp" style="display:block">KRYPTON   -</div><br>
+          </font>
+          <font color="white">
+            <div id="rain" style="display:block">NOBELIO   +</div><br>
+          </font>
+        </font>
+    
+        <font color="black">
+          <div id="next" style="display:none">
+            <font color="white" size="5">
+              <div id="outcome"></div>
+            </font>
+            <div id="finaltext"></div><br>
+            <button type="button" class="btn" id="center" style="line-height:100%" name="next" id="nexttrial"; onclick="mynexttrial()">Siguiente</button>
+          </div>
+        </font>
+        
+        <div class="row">
+          <div class="column">
+            <input type="image" name="Planeta 1" src="/static/figures/jup.png" onclick="showdeck(n=1)" id="deck1"  height="150" class="plan">
+          </div>
+          <div class="column">
+            <input type="image" name="Planeta 2" src="/static/figures/jup.png" onclick="showdeck(n=2)" id="deck2"  height="150" class="plan">
+          </div>
+          <div class="column">
+            <input type="image" name="Planeta 3" src="/static/figures/jup.png" onclick="showdeck(n=3)" id="deck3"  height="150" class="plan">
+          </div>
+          <div class="column">
+            <input type="image" name="Planeta 4" src="/static/figures/jup.png" onclick="showdeck(n=4)" id="deck4"  height="150" class="plan">
+          </div>
+          
+        </div>
+        
+      </center>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="page10" style="display:none">
+  <h3><img src="/static/figures/arcano.png" width="120" height="100"></h3>
+  <blockquote >La misión ha terminado</blockquote>
+  <blockquote>Gracias por ayudarnos a salvar el planeta Tierra.</blockquote>
+  
+</div>
+
+
+<div id="HiddenPanel" style="height:75px; width:600px;text-align:center;display:none">
+        <input type="hidden" id="sunseen"    name="sunseen"    value="" />
+        <input type="hidden" id="rainseen"   name="rainseen"   value="" />
+        <input type="hidden" id="tempseen"   name="tempseen"   value="" />
+        <input type="hidden" id="chosendeck" name="chosendeck" value="" />
+        <input type="hidden" id="reward"     name="reward"     value="" />
+        <input type="hidden" id="total"      name="total"      value="" />
+
+</div>
+
+
+</div>
+  <script src="cmab.js" charset="utf-8"></script>
+  
+  
+</html>

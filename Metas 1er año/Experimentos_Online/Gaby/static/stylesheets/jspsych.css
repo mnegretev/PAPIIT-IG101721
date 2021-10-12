@@ -1,0 +1,130 @@
+/*
+ * CSS for jsPsych experiments.
+ *
+ * This stylesheet provides minimal styling to make jsPsych
+ * experiments look polished without any additional styles.
+ */
+
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+ .row {
+   margin-right: -15px;
+   margin-left: -15px;
+
+ }
+
+/*fondos*/
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body{
+  min-height: 100%;
+  margin: 0;
+  background-color: rgb(6,6,88);
+  padding-bottom: 0;
+}
+
+.bg {
+  /* The image used */
+  height:auto;
+  background-image: url("static/figures/galax.jpg");
+  background-size:cover;
+}
+
+/*Titulos y párrafos*/
+h1{
+  color:#fff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h3{
+  color:#fff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h4{
+  color:#fff;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 3em 0;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0 0 1em 0;
+}
+
+blockquote{
+  margin: 1.8125em 0;
+  padding: 2em;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-family:monospace;
+}
+
+p{
+  color: #000000;
+  line-height:150%;
+  }
+/*BOTONES*/
+
+/*SIGUIENTE*/
+.btn{
+  display:inline-block;
+  padding:0.5em 2em;
+  background:#9155CF;
+  color:white;
+  border-radius:5em;
+  border: 0.0625rem solid #9155CF;
+  position: fixed;
+}
+#btn {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+}
+.btn:hover{
+  background: #282f40;
+  color: white;
+}
+
+/*INICIAR FASE DE PRUEBA*/
+.btn2{
+  display:inline-block;
+  padding:0.5em 2em;
+  background:#4F69FC;
+  color:white;
+  border-radius:5em;
+  border: 0.0625rem solid #4F69FC;
+  position: fixed;
+}
+
+.btn2:hover{
+  background:#A2AFF7;
+  color: white;
+
+}
+
+.plan{
+  padding-bottom: 50%;
+  padding-top: 50%;
+}
+.img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  padding: 2em;
+
+}
+
+#centrado{
+  margin-right: 500px;
+  margin-left: 50px;
+  }
+
+#center {
+  position:fixed;
+  margin-right: -15px;
+  margin-left: -60px;
+}

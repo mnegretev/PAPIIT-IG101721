@@ -1,0 +1,23 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\title{Improvement of Object Recognition in Domestic Service Robots using the Generalized Context Model}
+\author{Marco Negrete and Victor Sánchez}
+
+\maketitle
+\begin{abstract}
+  Object recognition is an important ability in domestic service robots. In last years, active vision has been used to improve the performance of object detection and recognition. Active vision commonly consist on the modification, in some way, of the geometric parameters of the vision system, mainly by moving sensors in an intelligent manner or by selecting under some criteria a certain region of the image to be analyzed. Nevertheless, domestic service robots are complex systems which involve the integration of several subsystems: motion planning, object recognition and manipulation, human-robot interaction, among many others. In this work we propose to improve object recognition in a service robot by integrating information from navigation and common sense knowledge using a formal psychological model for object categorization. The generalized context model offers an explanation about how humans categorize objects based on comparison with examples. This model allow to give more weight to certain features and also allow to give more weight to certain examples based on memory strength. In this work we integrate robot knowledge about its own position and most likely object positions through the generalized context model. We show how object recognition is improved when we integrate information from navigation. The proposed method is different from traditional active vision since we are not just modifying geometric parameters, but we are integrating information from two qualitatively different subsystems. Tests were carried out in a standard platform for service robot development in the context of Robocup@Home competition. 
+\end{abstract}
+
+Service robots are a type of mobile robots intended for helping humans in everyday En la mayoría de los robots de servicio ya se hace visión activa, pues generalmente se mueve la cabeza para tener una mejor toma. Según entiendo, active vision podría ser seleccionar inteligentemente alguna parte de la imagen o bien mover la cámara con algún propósito específico. 
+
+\cite{aloimonos1988active} Definición de visión activa: Se tiene visión activa cuando el observador realiza algo para modificar los parámetros geométricos del sensor. Por ejemplo, mover la cámara.
+
+\cite{davison2002simultaneous} Ejemplo de active vision. Usan la matriz de inovación para determinar qué marca tiene más incertidumbre y buscar esa marca en específico en lugar de todas las marcas en toda la imagen.
+
+\cite{ammirato2017dataset} Dataset para active vision. 
+
+
+\bibliographystyle{ieeetr}
+\bibliography{References}
+\end{document}
